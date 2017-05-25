@@ -2,7 +2,7 @@
 
 ## Serialized JSON
 
-```{
+{
   "gps": {
     "latitude": 42.360082,
     "longitude": -71.05888,
@@ -15,7 +15,7 @@
   },
   "gyroscope": {
     "roll": 12.12,
-    "bich": 33.55,
+    "pitch": 33.55,
     "yaw": 32.99
   }
 }
