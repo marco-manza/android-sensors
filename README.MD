@@ -2,6 +2,7 @@
 
 ## Serialized JSON
 
+```
 {
   "gps": {
     "latitude": 42.360082,
