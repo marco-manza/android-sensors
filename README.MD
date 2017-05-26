@@ -9,7 +9,7 @@
     "longitude": -71.05888,
     "accuracy": 12.12
   },
-  "accellerometer": {
+  "accelerometer": {
     "x": 34.12,
     "y": 12.02,
     "z": 66.99
