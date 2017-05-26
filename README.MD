@@ -7,7 +7,7 @@
   "gps": {
     "latitude": 42.360082,
     "longitude": -71.05888,
-    "accuracy": 12.12
+    "accuracy": 12.12       // horizontal accuracy of this location, radial, in meters.
   },
   "accelerometer": {
     "x": 34.12              // Acceleration force along the x axis (including gravity), m/s2

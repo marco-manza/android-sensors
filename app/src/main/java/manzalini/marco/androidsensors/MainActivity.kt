@@ -1,10 +1,7 @@
 package manzalini.marco.androidsensors
 
 import android.content.Context
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
+import android.location.Location
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -16,9 +13,15 @@ class MainActivity : AppCompatActivity(), MainView {
     lateinit var accX: TextView
     lateinit var accY: TextView
     lateinit var accZ: TextView
+
     lateinit var gyroRoll: TextView
     lateinit var gyroPitch: TextView
     lateinit var gyroYaw: TextView
+
+    lateinit var gpsLatitude: TextView
+    lateinit var gpsLongitude: TextView
+    lateinit var gpsAccuracy: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,10 @@ class MainActivity : AppCompatActivity(), MainView {
         gyroPitch = findViewById(R.id.gyro_pitch) as TextView
         gyroRoll = findViewById(R.id.gyro_roll) as TextView
         gyroYaw = findViewById(R.id.gyro_yaw) as TextView
+
+        gpsLatitude = findViewById(R.id.gps_latitude) as TextView
+        gpsLongitude = findViewById(R.id.gps_longitude) as TextView
+        gpsAccuracy = findViewById(R.id.gps_accuracy) as TextView
     }
 
     override fun displayAccelerometerValues(x: Float, y: Float, z: Float) {
@@ -47,6 +54,12 @@ class MainActivity : AppCompatActivity(), MainView {
         gyroPitch.text = x.toString()
         gyroRoll.text = y.toString()
         gyroYaw.text = z.toString()
+    }
+
+    override fun displayGpsValues(location: Location?) {
+        gpsLatitude.text = "Latitude: " + location?.latitude
+        gpsLongitude.text = "Longitude " + location?.longitude
+        gpsAccuracy.text = "Accuracy: " + location?.accuracy
     }
 
     override fun onResume() {
