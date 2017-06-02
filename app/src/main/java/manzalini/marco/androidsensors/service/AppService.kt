@@ -1,6 +1,8 @@
 package manzalini.marco.androidsensors.service
 
+import android.preference.PreferenceManager
 import io.reactivex.Observable
+import manzalini.marco.androidsensors.PropertiesManager
 import manzalini.marco.androidsensors.api.ServiceApi
 import manzalini.marco.androidsensors.model.SensorDataDto
 import okhttp3.ResponseBody
@@ -17,7 +19,7 @@ class AppService {
 
     fun send(sensorData: SensorDataDto): Observable<Response<ResponseBody>> {
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://httpbin.org/")
+                .baseUrl(PropertiesManager.instance.getUrl())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

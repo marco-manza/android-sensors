@@ -19,7 +19,6 @@ abstract class GyroscopeListener : SensorEventListener {
     }
 
     override final fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
-
     }
 
     protected abstract fun onGyroscopeValuesChanged(x: Float, y: Float, z: Float)

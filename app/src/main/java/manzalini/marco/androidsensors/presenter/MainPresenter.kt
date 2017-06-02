@@ -9,6 +9,7 @@ import android.hardware.SensorManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.location.LocationProvider
 import android.os.Bundle
 import com.tbruyelle.rxpermissions2.RxPermissions
 import manzalini.marco.androidsensors.AccellerometerListener
@@ -69,12 +70,16 @@ class MainPresenter : BasePresenter<MainView>() {
             }
 
             override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+                if (LocationProvider.OUT_OF_SERVICE == status) {
+                    view.displayGpsValues(null)
+                }
             }
 
             override fun onProviderEnabled(provider: String?) {
             }
 
             override fun onProviderDisabled(provider: String?) {
+                view.displayGpsValues(null)
             }
 
         }
